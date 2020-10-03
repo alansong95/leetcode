@@ -30,17 +30,21 @@
 #         return _sum
 
 # a solution that does not need reverse
+# class Solution(object):
+#     def romanToInt(self, s):
+#         _map = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+#         _sum = 0
+#         for i in range(len(s) - 1):
+#             if _map[s[i]] < _map[s[i+1]]:
+#                 _sum -= _map[s[i]] 
+#             else:
+#                 _sum += _map[s[i]]
+#         return _sum + _map[s[-1]]
+
+# one line solution
 class Solution(object):
     def romanToInt(self, s):
-        _map = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
-        _sum = 0
-        for i in range(len(s) - 1):
-            if _map[s[i]] < _map[s[i+1]]:
-                _sum -= _map[s[i]] 
-            else:
-                _sum += _map[s[i]]
-        return _sum + _map[s[-1]]
-
+        return sum(s.count(r) * v for r, v in [('I',1),('V',5),('X',10),('L',50),('C',100),('D',500),('M',1000),('IV',-2),('IX',-2),('XL',-20),('XC',-20),('CD',-200),('CM',-200)])
 
 solution = Solution()
 print(solution.romanToInt('III'))
