@@ -3,7 +3,7 @@
 # Space: O(1)
 class Solution(object):
     def longestCommonPrefix(self, strs):
-        longest = strs[0]
+        longest = strs[0] if strs else ''
 
         for _str in strs[1:]:
             i = 0
@@ -16,3 +16,4 @@ class Solution(object):
 solution = Solution()
 print(solution.longestCommonPrefix(["flower","flow","flight"]))
 print(solution.longestCommonPrefix(["dog","racecar","car"]))
+print(solution.longestCommonPrefix([]))
