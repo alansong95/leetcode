@@ -24,25 +24,20 @@
 #             return False
 #         return True
 
+# better solution
 class Solution(object):
     def isValid(self, s):
+        _dict = {'(': ')', '{': '}', '[': ']'}
         _stack = []
         for c in s:
             if c == '(' or c == '{' or c == '[':
                 _stack.append(c)
             else:
                 if len(_stack) > 0:
-                    opener = _stack.pop()
-                    if ord(opener)+1 == ord(c) or ord(opener)+2 == ord(c):
+                    if _dict[_stack.pop()] == c:
                         continue
-                    else:
-                        return False
-                else:
-                    return False
-
-        if len(_stack) > 0:
-            return False
-        return True
+                return False
+        return True if len(_stack) == 0 else False
 
 
 
