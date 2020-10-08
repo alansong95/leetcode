@@ -21,7 +21,7 @@
 
 class Solution(object):
     def findNumbers(self, nums):
-        return len([x for x in nums if len(str(x)) % 2 == 0])
+        return sum((len(str(i))) % 2 == 0 for i in nums)
 
 solution = Solution()
 print(solution.findNumbers([12,345,2,6,7896]))
