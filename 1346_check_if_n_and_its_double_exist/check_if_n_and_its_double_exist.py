@@ -20,17 +20,32 @@
 # use hash table
 # Time: O(n)
 # Space: O(n)
+# class Solution(object):
+#     def checkIfExist(self, arr):
+#         if not arr or len(arr) == 0:
+#             return False
+
+#         ht = {}
+#         for i in range(len(arr)):
+#             if arr[i]*2 in ht or arr[i] / 2 in ht:
+#                 return True
+#             else:
+#                 ht[arr[i]] = i
+#         return False
+
+# use set
+# Time: O(n)
+# Space: O(n)
 class Solution(object):
     def checkIfExist(self, arr):
-        if not arr or len(arr) == 0:
-            return False
+        # if not arr or len(arr) == 0:
+        #     return False
 
-        ht = {}
-        for i in range(len(arr)):
-            if arr[i]*2 in ht or arr[i] / 2 in ht:
+        s = set()
+        for n in arr:
+            if n*2 in s or n/2 in s:
                 return True
-            else:
-                ht[arr[i]] = i
+            s.add(n)
         return False
 
 solution = Solution()
