@@ -17,15 +17,28 @@
 # List comprehension 
 # Time: O(n)
 # Space: O(1)
-class Solution(object):
-    def removeElement(self, nums, val):
-        """
-        :type nums: List[int]
-        :type val: int
-        :rtype: int
-        """
-        nums[:] = [n for n in nums if n != val]
-        print(nums)
+# class Solution(object):
+#     def removeElement(self, nums, val):
+#         """
+#         :type nums: List[int]
+#         :type val: int
+#         :rtype: int
+#         """
+#         nums[:] = [n for n in nums if n != val]
+#         print(nums)
+
+# Lambda filter
+# Time: O(n)
+# Space: O(1)
+# class Solution(object):
+#     def removeElement(self, nums, val):
+#         """
+#         :type nums: List[int]
+#         :type val: int
+#         :rtype: int
+#         """
+#         nums[:] = list(filter(lambda x: x != val, nums))
+#         print(nums)
 
 solution = Solution()
 solution.removeElement([3,2,2,3], 3)
