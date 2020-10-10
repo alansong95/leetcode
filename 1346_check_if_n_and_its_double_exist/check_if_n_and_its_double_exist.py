@@ -38,8 +38,8 @@
 # Space: O(n)
 class Solution(object):
     def checkIfExist(self, arr):
-        # if not arr or len(arr) == 0:
-        #     return False
+        if not arr or len(arr) == 0:
+            return False
 
         s = set()
         for n in arr:
