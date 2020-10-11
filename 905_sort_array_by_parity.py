@@ -11,5 +11,6 @@ class Solution(object):
         odd = [x for x in A if x % 2 == 1]
         return even + odd
 
+
 solution = Solution()
 print(solution.sortArrayByParity([3,1,2,4]))
