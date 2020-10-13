@@ -30,11 +30,6 @@ class Solution:
         max2 = max(nums)
         nums.remove(max2)
         return max(nums)
-
-        ind = len(nums) - 3
-        if ind < 0:
-            return nums[-1]
-        return nums[ind]
         
 solution = Solution()
 print(solution.thirdMax([3,2,1]))
