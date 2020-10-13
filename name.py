@@ -10,7 +10,7 @@ file_name = '_'.join(name_list)
 file_name += '.py'
 
 f = open(file_name, 'a')
-f.write('solution = Solution()\nprint(solution.')
+f.write('\n\nsolution = Solution()\nprint(solution.')
 f.close()
 
 print('file: ' + file_name + ' created successfully.')
