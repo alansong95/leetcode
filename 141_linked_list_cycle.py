@@ -11,18 +11,14 @@ class Solution(object):
         """
         if not head:
             return False
-        slow_pointer = head
-        fast_pointer = head.next
-        
-        while fast_pointer and slow_pointer != fast_pointer:
-            slow_pointer = slow_pointer.next
-            fast_pointer = fast_pointer.next
-            if fast_pointer:
-                fast_pointer = fast_pointer.next
-            else:
+
+        slow = head
+        fast = head.next
+        while slow != fast:
+            if not fast or not fast.next:
                 return False
-        if fast_pointer:
-            return True
-        else:
-            return False
+            slow = slow.next
+            fast = fast.next.next
+
+        return True
         
