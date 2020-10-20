@@ -41,14 +41,29 @@
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
+# class Solution(object):
+#     def reverseList(self, head):
+#         prev = None
+#         curr = head
+#         while curr:
+#             temp = curr.next
+#             curr.next = prev
+#             prev = curr
+#             curr = temp
+#         return prev
+
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
 class Solution(object):
     def reverseList(self, head):
-        prev = None
-        curr = head
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        prev, curr = None, head
         while curr:
-            temp = curr.next
-            curr.next = prev
-            prev = curr
-            curr = temp
+            curr.next, curr, prev = prev, curr.next, curr
         return prev
-
