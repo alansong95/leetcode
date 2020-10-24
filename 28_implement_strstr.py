@@ -5,12 +5,9 @@ class Solution(object):
         :type needle: str
         :rtype: int
         """
-        if needle == '':
-            return 0
-        try:
-            return haystack.index(needle)      
-        except Exception:
-            return -1
+        if needle in haystack:
+            return haystack.index(needle)
+        return -1
 
 solution = Solution()
 print(solution.strStr('hello', 'll'))
