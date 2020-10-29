@@ -11,9 +11,8 @@ class Solution(object):
         """
         ptr = head
         while ptr:
-            if ptr.next and ptr.val == ptr.next.val:
+            while ptr.next and ptr.val == ptr.next.val:
                 ptr.next = ptr.next.next
-            else:
-                ptr = ptr.next
+            ptr = ptr.next
         return head
             
