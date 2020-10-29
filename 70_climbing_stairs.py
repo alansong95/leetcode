@@ -24,6 +24,9 @@
 #             self.memo[n] = temp
 #             return temp
 
+# fib
+# time: O(n)
+# space: O(1)
 class Solution(object):
     def climbStairs(self, n):
         f, s = 1, 2
@@ -40,9 +43,3 @@ print(solution.climbStairs(3) == 3)
 print(solution.climbStairs(4) == 5)
 print(solution.climbStairs(20) == 10946)
 print(solution.climbStairs(45) == 1836311903)
-
-print(solution.climbStairs(2))
-print(solution.climbStairs(3))
-print(solution.climbStairs(4))
-print(solution.climbStairs(20))
-print(solution.climbStairs(45))
