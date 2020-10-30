@@ -3,6 +3,20 @@
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
+# class Solution(object):
+#     def deleteDuplicates(self, head):
+#         """
+#         :type head: ListNode
+#         :rtype: ListNode
+#         """
+#         ptr = head
+#         while ptr:
+#             if ptr.next and ptr.val == ptr.next.val:
+#                 ptr.next = ptr.next.next
+#             else:
+#                 ptr = ptr.next
+#         return head
+            
 class Solution(object):
     def deleteDuplicates(self, head):
         """
@@ -15,4 +29,3 @@ class Solution(object):
                 ptr.next = ptr.next.next
             ptr = ptr.next
         return head
-            
