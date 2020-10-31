@@ -18,6 +18,16 @@
 # use sets
 # time: O(n)
 # space: O(1)
+# class Solution(object):
+#     def singleNumber(self, nums):
+#         return 2 * sum(set(nums)) - sum(nums)
+
+# bit manipulation
+# time: O(n)
+# space: O(1)
 class Solution(object):
     def singleNumber(self, nums):
-        return 2 * sum(set(nums)) - sum(nums)
+        xor = 0
+        for num in nums:
+            xor = xor ^ num
+        return xor
