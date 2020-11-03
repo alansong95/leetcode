@@ -20,11 +20,19 @@
 # hash table in 2 lines
 # time: O(n)
 # space: O(n)
-import collections
+# import collections
+# class Solution(object):
+#     def majorityElement(self, nums):
+#         counts = collections.Counter(nums)
+#         return max(counts, key=counts.get)
+
+# sorting
+# time: O(nlogn)
+# space: O(1)
 class Solution(object):
     def majorityElement(self, nums):
-        counts = collections.Counter(nums)
-        return max(counts, key=counts.get)
+        nums = sorted(nums)
+        return nums[len(nums)//2]
 
 solution = Solution()
 print(solution.majorityElement([3,2,3]))
