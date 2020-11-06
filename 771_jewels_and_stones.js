@@ -10,3 +10,8 @@ var numJewelsInStones = function(J, S) {
       } 
   }).length
 };
+
+// one line solution
+var numJewelsInStones = function(J, S) {
+  return [...S].filter(item => J.includes(item)).length
+};
