@@ -17,21 +17,33 @@
 # hash table
 # time: O(n)
 # space: O(n)
+# class Solution(object):
+#     def numIdenticalPairs(self, nums):
+#         """
+#         :type nums: List[int]
+#         :rtype: int
+#         """
+#         count = 0
+#         ht = {}
+#         for i, num in enumerate(nums):
+#             if num in ht:
+#                 ht[num] += 1
+#             else:
+#                 ht[num] = 1
+        
+#         _values = ht.values()
+#         for value in _values:
+#             count += (value*(value-1))/2
+#         return count
+
+import collections
+
 class Solution(object):
     def numIdenticalPairs(self, nums):
         """
         :type nums: List[int]
         :rtype: int
         """
-        count = 0
-        ht = {}
-        for i, num in enumerate(nums):
-            if num in ht:
-                ht[num] += 1
-            else:
-                ht[num] = 1
+        return(sum(x*(x-1) / 2 for x in collections.Counter(nums).values()))
         
-        _values = ht.values()
-        for value in _values:
-            count += (value*(value-1))/2
-        return count
+        
