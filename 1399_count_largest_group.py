@@ -86,3 +86,11 @@
 #         return sod
 
 # one line solution
+import statistics
+class Solution(object):
+    def countLargestGroup(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        return len(statistics.multimode(sum(map(int, str(i))) for i in range(1, n+1)))
