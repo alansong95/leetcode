@@ -18,6 +18,6 @@ class Solution(object):
         :rtype: int
         """
         v1, v2 = 0, 1
-        for i in range(N):
+        for _ in range(N):
             v2, v1 = v1 + v2, v2
         return v1
