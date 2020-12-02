@@ -8,7 +8,7 @@ class Solution(object):
         """
         res = 0
         for s, e in zip(startTime, endTime):
-            if queryTime >= s and queryTime <= e:
+            if s <= queryTime <= e:
                 res += 1
         return res
         
