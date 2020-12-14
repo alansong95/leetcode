@@ -47,7 +47,7 @@ class Solution(object):
         n = max(len(num1), len(num2))
         num1, num2 = num1.zfill(n), num2.zfill(n)
             
-        for i, (n1, n2) in enumerate(zip(num1[::-1], num2[::-1])):
+        for _, (n1, n2) in enumerate(zip(num1[::-1], num2[::-1])):
             _sum = (ord(n1) - ord('0')) + (ord(n2) - ord('0')) + carry
             carry = _sum // 10
             _sum = _sum % 10
