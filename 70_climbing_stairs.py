@@ -27,13 +27,28 @@
 # fib
 # time: O(n)
 # space: O(1)
+# class Solution(object):
+#     def climbStairs(self, n):
+#         f, s = 1, 2
+#         for _ in range(n-1):
+#             f, s = s, f + s
+#         return f
+
+# dynamic programming
 class Solution(object):
     def climbStairs(self, n):
-        f, s = 1, 2
-        for _ in range(n-1):
-            f, s = s, f + s
-        return f
+        """
+        :type n: int
+        :rtype: int
+        """
+        dp = [0] * (n + 1)
+        dp[0] = 1
+        dp[1] = 1
 
+        for i in range(2, n + 1):
+            dp[i] = dp[i-1] + dp[i - 2]
+        
+        return dp[n]
 
 
 solution = Solution()
