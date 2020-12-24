@@ -35,20 +35,36 @@
 #         return f
 
 # dynamic programming
+# class Solution(object):
+#     def climbStairs(self, n):
+#         """
+#         :type n: int
+#         :rtype: int
+#         """
+#         dp = [0] * (n + 1)
+#         dp[0] = 1
+#         dp[1] = 1
+
+#         for i in range(2, n + 1):
+#             dp[i] = dp[i-1] + dp[i - 2]
+        
+#         return dp[n]
+
+
 class Solution(object):
     def climbStairs(self, n):
         """
         :type n: int
         :rtype: int
         """
-        dp = [0] * (n + 1)
-        dp[0] = 1
-        dp[1] = 1
+        a = b = c = 1
 
         for i in range(2, n + 1):
-            dp[i] = dp[i-1] + dp[i - 2]
+            c = a + b
+            a = b
+            b = c
         
-        return dp[n]
+        return c
 
 
 solution = Solution()
