@@ -29,3 +29,18 @@ class Solution(object):
             return n
         
         return self.fib(n-1) + self.fib(n-2)
+
+# recursion + memoization (top down dp)
+class Solution2(object):
+    def fib(self, n):
+        return self.fibHelper(n, {})
+    
+    def fibHelper(self, n, memo):
+        if n < 2:
+            return n
+        
+        if n in memo:
+            return memo[n]
+
+        memo[n] = self.fibHelper(n-1, memo) + self.fibHelper(n-2, memo)
+        return memo[n]
