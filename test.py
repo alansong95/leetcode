@@ -112,47 +112,40 @@ def fib(n):
 
 # recursion + memoization (top down dp)
 def fibTopDown(n):
-    memo = []
-    return fibTopDownHelper(n, memo)
+    return fibTopDownHelper(n, {})
 
 def fibTopDownHelper(n, memo):
-    if n == 0:
-        return 0
-    elif n <= 2:
-        return 1
-
+    if n < 2:
+        return n
+    
     if n in memo:
         return memo[n]
-    
-    memo[n] = fibTopDownHelper(n-1, memo) + fibTopDownHelper(n-2, memo)
+
+    memo[n] = self.fibHelper(n-1, memo) + self.fibHelper(n-2, memo)
     return memo[n]
 
 # bottom up dynamic programming (forward)
 def fibBottomUpDPForward(n):
-    if n == 0:
-        return 0
-    elif n <= 2:
-        return 1
+    if n < 2:
+        return n
     
     dp = [0] * (n+1)
     dp[0] = 0
     dp[1] = 1
     for i in range(2, n+1):
         dp[i] = dp[i-1] + dp[i-2]
-    
+
     return dp[n]
 
 # bottom up dynamic programming (backward)
 def fibBottomUpDPBackward(n):
-    if n == 0:
-        return 0
-    elif n <= 2:
-        return 1
-
+    if n < 2:
+        return n
+    
     dp = [0] * (n+2)
     dp[0] = 0
     dp[1] = 1
     for i in range(1, n):
-        dp[i+1] += dp[i] # dp[i] is already solved, use it to solve other subproblems
+        dp[i+1] += dp[i]
         dp[i+2] += dp[i]
     return dp[n]
