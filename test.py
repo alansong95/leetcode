@@ -149,3 +149,68 @@ def fibBottomUpDPBackward(n):
         dp[i+1] += dp[i]
         dp[i+2] += dp[i]
     return dp[n]
+
+
+def coinChange(n):
+    dp = [0] * (n + 1)
+    dp[0] = 1
+    for i in range(1, n):
+        if i >= 1:
+            dp[i] += dp[i-1]
+        if i >= 3:
+            dp[i] += dp[i-3]
+        if i >= 5:
+            dp[i] += dp[i-5]
+        if i >= 10:
+            dp[i] += dp[i-10]
+
+    return dp[n]
+
+def coinChangeWithDenominations(n, coins):
+    dp = [0] * (n + 1)
+
+    dp[0] = 1
+    for i in range(1, n+1):
+        for coin in coins:
+            if i - coin >= 0:
+                dp[i] += dp[i-coin]
+
+    return dp[n]
+
+
+def coinChangeExactlyTCoins(n, t, coins):
+    dp = [0] * (n+1)
+    for i in range(1, len(dp)):
+        dp[i] = [0] * (t+1)
+    
+    dp[0][0] = 1
+    for i in range(0, n):
+        for j in range(0, t):
+            if i > 0 and j == 0:
+                dp[i][j] = 0
+                continue
+            
+            for coin in coins:
+                if i - coin >= 0:
+                    dp[i][j] += dp[i-coin][j-1]
+
+    return dp[n][t]
+
+
+def coinChangeNoMoreThanTCoins(n, t, coins):
+    dp = [0] * (n+1)
+    for i in range(1, len(dp)):
+        dp[i] = [0] * (t+1)
+    
+    dp[0][0] = 1
+    for i in range(0, n):
+        for j in range(0, t):
+            if i > 0 and j == 0:
+                dp[i][j] = 1
+                continue
+            
+            for coin in coins:
+                if i - coin >= 0:
+                    dp[i][j] += dp[i-coin][j-1]
+
+    return dp[n][t]
