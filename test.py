@@ -206,11 +206,35 @@ def coinChangeNoMoreThanTCoins(n, t, coins):
     for i in range(0, n):
         for j in range(0, t):
             if i > 0 and j == 0:
-                dp[i][j] = 1
+                dp[i][j] = 0
                 continue
             
+            if i == 0 and j > 0:
+                dp[i][j] = 1
+                continue
+
             for coin in coins:
                 if i - coin >= 0:
                     dp[i][j] += dp[i-coin][j-1]
 
     return dp[n][t]
+
+def coinChange3(n, coins):
+    dp = [0] * (n+1)
+    for i in range(len(dp)):
+        dp[i] = [0] * 2
+
+    dp[0][0] = 0
+    dp[0][1] = 1
+
+    for coin in coins:
+        if i-coin < 0:
+            continue
+        dp[i][0] += dp[i-coin][1]
+        dp[i][1] += dp[i-coin][0]
+
+    return dp[n][1]
+
+
+def coinChange4(n, coins):
+    
