@@ -237,4 +237,33 @@ def coinChange3(n, coins):
 
 
 def coinChange4(n, coins):
+    dp = [0] * (n+1)
+    for i in range(len(dp)):
+        dp[i] = [0] * len(coins)
     
+    for i in range(len(coins)):
+        dp[0][i] = 1
+
+    for i in range(n):
+        for j in range(len(coins):
+            for k in range(j + 1):
+                if i-coins[k] < 0:
+                    continue
+                dp[i][j] += dp[i-coins[k][k]]
+    # for i in range(n):
+    #     if i >= 1:
+    #         dp[i][0] = dp[i-1][0]
+    #         dp[i][1] = dp[i-1][0]
+    #         dp[i][2] = dp[i-1][0]
+    #         dp[i][3] = dp[i-1][0]
+    #     if i >= 2:
+    #         dp[i][1] = dp[i-2][1]
+    #         dp[i][2] = dp[i-2][1]
+    #         dp[i][3] = dp[i-2][1]
+    #     if i >= 3:
+    #         dp[i][2] = dp[i-3][2]
+    #         dp[i][3] = dp[i-3][2]
+    #     if i >= 5:
+    #         dp[i][3] = dp[i-5][3]
+    return dp[n][len(coins)-1]
+

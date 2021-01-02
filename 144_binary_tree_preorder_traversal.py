@@ -32,4 +32,15 @@ class Solution(object):
         self.output = []
         helper(root)
         return self.output
-        
+
+class SolutionUsingStack(object):
+    def preorderTraversal(self, root):
+        stack = [root]
+        res = []
+        while stack:
+            node = stack.pop()
+            if node:
+                res.append(node.val)
+                stack.append(node.right)
+                stack.append(node.left)
+        return res
