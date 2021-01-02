@@ -56,3 +56,7 @@ class Solution2(object):
             res.append(root.val)
             self.helper(root.left, res)
             self.helper(root.right, res)
+
+class Solution3(object):
+    def preorderTraversal(self, root):
+        return [root.val] + self.preorderTraversal(root.left) + self.preorderTraversal(root.right) if root else []
