@@ -44,3 +44,15 @@ class SolutionUsingStack(object):
                 stack.append(node.right)
                 stack.append(node.left)
         return res
+
+class Solution2(object):
+    def preorderTraversal(self, root):
+        res = []
+        self.helper(root, res)
+        return res
+        
+    def helper(self, root, res):
+        if root:
+            res.append(root.val)
+            self.helper(root.left, res)
+            self.helper(root.right, res)
