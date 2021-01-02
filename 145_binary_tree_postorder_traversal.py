@@ -32,3 +32,7 @@ class Solution2(object):
             self.helper(root.left, res)
             self.helper(root.right, res)
             res.append(root.val)
+
+class Solution3(object):
+    def postorderTraversal(self, root):
+        return self.postorderTraversal(root.left) + self.postorderTraversal(root.right) + [root.val] if root else []
