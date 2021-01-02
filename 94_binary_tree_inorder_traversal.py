@@ -38,3 +38,7 @@ class Solution2(object):
             self.helper(root.left, res)
             res.append(root.val)
             self.helper(root.right, res)
+
+class Solution3(object):
+    def inorderTraversal(self, root):
+        return self.inorderTraversal(root.left) + [root.val] + self.inorderTraversal(root.right) if root else []
