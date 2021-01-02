@@ -19,3 +19,16 @@ class Solution(object):
         self.output = []
         helper(root)
         return self.output
+    
+class Solution2(object):
+    def postorderTraversal(self, root):
+        res = []
+        self.helper(root, res)
+        return res
+        
+    
+    def helper(self, root, res):
+        if root:
+            self.helper(root.left, res)
+            self.helper(root.right, res)
+            res.append(root.val)
