@@ -6,7 +6,7 @@ class Solution(object):
         """
         arr = [0] * n
         arr = [[0, 0, 0, 0, 1] for e in arr]
-        print arr
+
         for i in range(n):
             for j in range(4-1, -1, -1):
                 if i == 0:
