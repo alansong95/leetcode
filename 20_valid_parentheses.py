@@ -40,6 +40,24 @@ class Solution(object):
         return True if len(_stack) == 0 else False
 
 
+class Solution2(object):
+    def isValid(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        dic = {'(': ')', '{': '}', '[': ']'}
+        
+        stack = []
+        
+        for c in s:
+            if c in dic:
+                stack.append(c)
+            else:
+                if len(stack) == 0 or dic[stack.pop(-1)] != c:
+                    return False
+        return len(stack) == 0
+
 
 solution = Solution()
 print(solution.isValid("()"))
