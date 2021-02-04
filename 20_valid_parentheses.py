@@ -47,7 +47,6 @@ class Solution2(object):
         :rtype: bool
         """
         dic = {'(': ')', '{': '}', '[': ']'}
-        
         stack = []
         
         for c in s:
