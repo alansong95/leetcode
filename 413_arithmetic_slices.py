@@ -11,5 +11,4 @@ class Solution(object):
             if A[i] - A[i-1] == A[i-1] - A[i-2]:
                 dp[i] = 1 + dp[i-1]
                 _sum += dp[i]
-        print dp
         return _sum
