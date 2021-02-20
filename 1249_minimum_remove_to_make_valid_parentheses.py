@@ -10,8 +10,8 @@ class Solution(object):
             if c == '(':
                 stack.append(i)
             elif c == ')':
-                if stack and s[stack[-1]] == '(':
-                    stack.pop(-1)
+                if stack:
+                    stack.pop()
                 else:
                     remove.add(i)
         
@@ -24,3 +24,25 @@ class Solution(object):
                 new_string += c
         
         return new_string
+
+class Solution2(object):
+    def minRemoveToMakeValid(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        s = list(s)
+        stack = []
+        for i, c in enumerate(s):
+            if c == '(':
+                stack.append(i)
+            elif c == ')':
+                if stack:
+                    stack.pop()
+                else:
+                    s[i] = ''
+        
+        while stack:
+            s[stack.pop()] = ''
+        
+        return ''.join(s)
