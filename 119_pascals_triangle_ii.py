@@ -19,3 +19,14 @@ class Solution(object):
         for i in range(rowIndex+1):
             res.append(helper(rowIndex, i))
         return res
+
+class Solution2(object):
+    def getRow(self, rowIndex):
+        """
+        :type rowIndex: int
+        :rtype: List[int]
+        """
+        row = [1]
+        for _ in range(rowIndex):
+            row = [x + y for x, y in zip([0]+row, row+[0])]
+        return row
