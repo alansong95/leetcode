@@ -32,5 +32,4 @@ class Solution(object):
                         if col+1 < nc and grid[row][col+1] == '1':
                             neighbors.append((row, col+1))
                             grid[row][col+1] = '0'
-        print grid
         return num_islands
