@@ -10,8 +10,7 @@ class Solution(object):
         
         while queue:
             i = queue.pop(0)
-            room = rooms[i]
-            for key in room:
+            for key in rooms[i]:
                 if key not in seen:
                     queue.append(key)
             seen.add(i)
@@ -30,8 +29,7 @@ class Solution2(object):
         
         while stack:
             i = stack.pop()
-            room = rooms[i]
-            for key in room:
+            for key in rooms[i]:
                 if key not in seen:
                     stack.append(key)
             seen.add(i)
