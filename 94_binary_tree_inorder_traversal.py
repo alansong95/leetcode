@@ -42,3 +42,26 @@ class Solution2(object):
 class Solution3(object):
     def inorderTraversal(self, root):
         return self.inorderTraversal(root.left) + [root.val] + self.inorderTraversal(root.right) if root else []
+
+
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution4(object):
+    def inorderTraversal(self, root):
+        stack = [(root, False)]
+        res = []
+        
+        while stack:
+            curr, visited = stack.pop()
+            if curr:
+                if visited:
+                    res.append(curr.val)
+                else:
+                    stack.append((curr.right, False))
+                    stack.append((curr, True))
+                    stack.append((curr.left, False))
+        return res
