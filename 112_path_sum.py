@@ -36,9 +36,9 @@ class Solution2(object):
             node, target = stack.pop()
             if node:
                 target = target - node.val
-                stack.append((node.left, target))
-                stack.append((node.right, target))
-                
                 if node.left is None and node.right is None and target == 0:
                     return True
+
+                stack.append((node.left, target))
+                stack.append((node.right, target))
         return False
