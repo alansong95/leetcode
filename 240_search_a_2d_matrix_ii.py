@@ -34,20 +34,18 @@ class Solution2(object):
         if not matrix:
             return False
         
-        def search(left, up, right, down):
-            if left > right or up > down:
+        def helper(left, right, top, bottom):
+            if left > right or top > bottom:
                 return False
-            elif target < matrix[up][left] or target > matrix[down][right]:
+            if matrix[top][left] > target or matrix[bottom][right] < target:
                 return False
             
-            mid = left + (right-left) // 2
-            
-            row = up
-            while row <= down and matrix[row][mid] <= target:
+            mid = (left + right) // 2
+            row = top
+            while row <= bottom and matrix[row][mid] <= target:
                 if matrix[row][mid] == target:
                     return True
                 row += 1
-            
-            return search(left, row, mid-1, down) or \
-                    search(mid + 1, up, right, row-1)
-        return search(0, 0, len(matrix[0]) - 1, len(matrix) - 1)
+            return helper(left, mid-1, row, bottom) or \
+                    helper(mid+1, right, top, row-1)
+        return helper(0, len(matrix[0])-1, 0, len(matrix)-1)
