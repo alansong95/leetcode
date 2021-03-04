@@ -51,3 +51,10 @@ class Solution4(object):
         c1 = collections.Counter(nums)
         c2 = collections.Counter(range(len(nums)+1))
         return (c2 - c1).elements().next()
+
+
+# time: O(n)
+# space: O(1)
+class Solution5(object):
+    def missingNumber(self, nums):
+        return sum(range(len(nums)+1)) - sum(nums)
