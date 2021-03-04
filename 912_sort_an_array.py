@@ -29,7 +29,7 @@ class Solution(object):
         return res
 
 # quick sort
-class Solution(object):
+class Solution2(object):
     def sortArray(self, nums):
         """
         :type nums: List[int]
