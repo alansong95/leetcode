@@ -9,7 +9,8 @@ class Solution(object):
         return (_sum - sum(nums))
 
 
-# O(nlog(n))
+# time: O(nlog(n))
+# space: O(1)
 class Solution2(object):
     def missingNumber(self, nums):
         """
@@ -21,4 +22,18 @@ class Solution2(object):
             if i != nums[i]:
                 return i
         return len(nums)
-            
+
+
+# time: O(n)
+# space: O(n)
+class Solution(object):
+    def missingNumber(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        hashset = set(nums)
+        
+        for i in range(len(nums)+1):
+            if i not in hashset:
+                return i
