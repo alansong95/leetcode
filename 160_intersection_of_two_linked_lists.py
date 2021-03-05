@@ -53,3 +53,34 @@
 #             ptrA = ptrA.next
 #             ptrB = ptrB.next
 #         return None
+
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+
+# use hashset
+class Solution(object):
+    def getIntersectionNode(self, headA, headB):
+        """
+        :type head1, head1: ListNode
+        :rtype: ListNode
+        """
+        hashset = set()
+        
+        while headA or headB:
+            if headA:
+                if headA in hashset:
+                    return headA
+                else:
+                    hashset.add(headA)
+                headA = headA.next
+            if headB:
+                if headB in hashset:
+                    return headB
+                else:
+                    hashset.add(headB)
+                headB = headB.next
+        return None
