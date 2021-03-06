@@ -6,7 +6,7 @@ import collections
 #         self.val = val
 #         self.left = left
 #         self.right = right
-class Solution2(object):
+class Solution(object):
     def averageOfLevels(self, root):
         """
         :type root: TreeNode
@@ -32,7 +32,7 @@ class Solution2(object):
         return res
         
 # dfs recursion
-class Solution(object):
+class Solution2(object):
     def averageOfLevels(self, root):
         """
         :type root: TreeNode
