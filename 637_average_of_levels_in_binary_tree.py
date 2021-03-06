@@ -1,3 +1,4 @@
+import collections
 # bfs
 # Definition for a binary tree node.
 # class TreeNode(object):
@@ -25,9 +26,28 @@ class Solution(object):
                 queue.append((node.left, level+1))
                 queue.append((node.right, level+1))
         
-        print res
         for i in range(len(res)):
             res[i] = float(sum(res[i])) / len(res[i])
             
         return res
         
+# dfs recursion
+class Solution(object):
+    def averageOfLevels(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[float]
+        """ 
+        lvlcnt = defaultdict(int)
+        lvlsum = defaultdict(int)
+
+        def dfs(node, level):
+            if not node:
+                return
+            lvlcnt[level] += 1
+            lvlsum[level] += node.val
+            dfs(node.left, level+1)
+            dfs(node.right, level+1)
+            
+        dfs(root, 0)
+        return [float(lvlsum[i]) / lvlcnt[i] for i in range(len(lvlcnt))]
