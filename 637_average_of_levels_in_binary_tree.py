@@ -6,7 +6,7 @@ import collections
 #         self.val = val
 #         self.left = left
 #         self.right = right
-class Solution(object):
+class Solution2(object):
     def averageOfLevels(self, root):
         """
         :type root: TreeNode
@@ -38,8 +38,8 @@ class Solution(object):
         :type root: TreeNode
         :rtype: List[float]
         """ 
-        lvlcnt = defaultdict(int)
-        lvlsum = defaultdict(int)
+        lvlcnt = collections.defaultdict(int)
+        lvlsum = collections.defaultdict(int)
 
         def dfs(node, level):
             if not node:
@@ -50,4 +50,26 @@ class Solution(object):
             dfs(node.right, level+1)
             
         dfs(root, 0)
+        return [float(lvlsum[i]) / lvlcnt[i] for i in range(len(lvlcnt))]
+
+
+# dfs with stack
+class Solution3(object):
+    def averageOfLevels(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[float]
+        """ 
+        lvlcnt = collections.defaultdict(int)
+        lvlsum = collections.defaultdict(int)
+
+        stack = [(root, 0)]
+        while stack:
+            node, level = stack.pop()
+            if node:
+                lvlcnt[level] += 1
+                lvlsum[level] += node.val
+                stack.append((node.left, level+1))
+                stack.append((node.right, level+1))
+
         return [float(lvlsum[i]) / lvlcnt[i] for i in range(len(lvlcnt))]
