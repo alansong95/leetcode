@@ -4,20 +4,24 @@ class Solution(object):
         :type matrix: List[List[int]]
         :rtype: List[int]
         """
-        ans = []
-
-        i = 0
-        j = 0
-        count = 0
-        while i < len(matrix) and i < len(matrix[0]):
-            while i + j <= count:
-                ans.append(matrix[i][j])
-                
-
-solution = Solution()
-print(solution.findDiagonalOrder([
- [ 1, 2, 3 ],
- [ 4, 5, 6 ],
- [ 7, 8, 9 ]
-]
-))
+        if not matrix:
+            return []
+        
+        hashtable = [[] for i in range(2*max(len(matrix), len(matrix[0]))-1)]
+        
+        # populate hashtable
+        for row in range(len(matrix)):
+            for col in range(len(matrix[0])):
+                hashtable[row+col].append(matrix[row][col])
+        
+        
+        # populate answer
+        res = []
+        flip = True
+        for e in hashtable:
+            if flip:
+                e.reverse()
+            res += e
+            flip = not flip
+        
+        return res

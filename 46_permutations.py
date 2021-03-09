@@ -7,6 +7,8 @@ class Solution(object):
         def backtrack(curr, left):
             if len(curr) == n:
                 res.append(curr[:])
+                return
+                
             for i in range(len(left)):
                 backtrack(curr + [left[i]], left[:i] + left[i+1:])
     
