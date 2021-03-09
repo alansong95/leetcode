@@ -1,9 +1,4 @@
-# Definition for a binary tree node.
-# class TreeNode(object):
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
+# recursion
 class Solution(object):
     def inorderTraversal(self, root):
         """
@@ -21,12 +16,8 @@ class Solution(object):
         helper(root)
         return self.output
 
-# Definition for a binary tree node.
-# class TreeNode(object):
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
+
+# cleaner recursion
 class Solution2(object):
     def inorderTraversal(self, root):
         res = []
@@ -39,17 +30,14 @@ class Solution2(object):
             res.append(root.val)
             self.helper(root.right, res)
 
+
+# one line recursion
 class Solution3(object):
     def inorderTraversal(self, root):
         return self.inorderTraversal(root.left) + [root.val] + self.inorderTraversal(root.right) if root else []
 
 
-# Definition for a binary tree node.
-# class TreeNode(object):
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
+# iterative
 class Solution4(object):
     def inorderTraversal(self, root):
         stack = [(root, False)]
