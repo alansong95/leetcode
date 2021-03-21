@@ -7,5 +7,5 @@ class Solution(object):
         nums_sorted = sorted(nums)
         res = 0
         for i in range(0, len(nums), 2):
-            res += nums[i]
+            res += nums_sorted[i]
         return res
