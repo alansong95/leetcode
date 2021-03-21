@@ -63,3 +63,47 @@ class Solution(object):
                 j += 1
                 i = j
         return output
+
+
+class Solution2(object):
+    def summaryRanges(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[str]
+        """
+        if not nums:
+            return nums
+        
+        start = nums[0]
+        prev = nums[0]
+        curr = None
+        
+        res = []
+        for num in nums[1:]:
+            if prev + 1 != num:
+                if prev != start:
+                    res.append(str(start) + '->' + str(prev))
+                else:
+                    res.append(str(start))
+                start = num
+            prev = num
+        if start != nums[-1]:
+            res.append(str(start) + '->' + str(nums[-1]))
+        else:
+            res.append(str(nums[-1]))
+        return res
+
+
+class Solution3(object):
+    def summaryRanges(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[str]
+        """
+        ranges = []
+        
+        for num in nums:
+            if not ranges or num > ranges[-1][-1] + 1:
+                ranges.append([])
+            ranges[-1][1:] = [num]
+        return ['->'.join(map(str, r)) for r in ranges]
