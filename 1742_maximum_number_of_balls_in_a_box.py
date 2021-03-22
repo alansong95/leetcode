@@ -24,3 +24,23 @@ class Solution(object):
         for c in num_str:
             _sum += int(c)
         return _sum
+
+class Solution2(object):
+    def countBalls(self, lowLimit, highLimit):
+        """
+        :type lowLimit: int
+        :type highLimit: int
+        :rtype: int
+        """
+        ht = collections.defaultdict(int)
+        
+        res = -1
+        for i in range(lowLimit, highLimit+1):
+            hashed_value = self.h(i)
+            ht[hashed_value] += 1
+            if ht[hashed_value] > res:
+                res = ht[hashed_value]
+        return res
+            
+    def h(self, num):
+        return sum([int(c) for c in str(num)])
