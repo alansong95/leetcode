@@ -14,3 +14,18 @@ class Solution(object):
         res = [c + ' ' * q for c in splited[:-1]]
         res.append(splited[-1] + ' ' * r)
         return ''.join(res)
+
+
+class Solution2(object):
+    def reorderSpaces(self, text):
+        """
+        :type text: str
+        :rtype: str
+        """
+        num_spaces = text.count(' ')
+        splited = text.split()
+        if len(splited) == 1:
+            return ''.join(splited) + ' ' * num_spaces 
+        
+        q, r = divmod(num_spaces, len(splited) - 1)
+        return (' ' * q).join(splited) + ' ' * r
