@@ -19,3 +19,27 @@ class Solution(object):
         if root is None:
             return 0
         return 1 + max(self.getHeight(root.left), self.getHeight(root.right))
+
+
+class Solution2(object):
+    def isBalanced(self, root):
+        return self.checkHeight(root) != -1
+            
+        
+    def checkHeight(self, node):
+        if not node:
+            return 0
+        
+        leftHeight = self.checkHeight(node.left)
+        if leftHeight == -1:
+            return -1
+        
+        rightHeight = self.checkHeight(node.right)
+        if rightHeight == -1:
+            return -1
+        
+        heightDiff = abs(leftHeight - rightHeight)
+        if heightDiff > 1:
+            return -1
+        
+        return 1 + max(leftHeight, rightHeight)
