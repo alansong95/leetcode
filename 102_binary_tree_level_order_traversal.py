@@ -11,16 +11,14 @@ class Solution(object):
         :rtype: List[List[int]]
         """
         res = []
-        queue = [(root, 0)]
+        queue = collections.deque([(root, 0)])
         
         while queue:
-            node, level = queue.pop(0)
-            
+            node, level = queue.popleft()
             if node:
-                if len(res) > level:
-                    res[level].append(node.val)
-                else:
-                    res.append([node.val])
-                queue.append((node.left, level + 1))
-                queue.append((node.right, level + 1))
+                if len(res) == level:
+                    res.append([])
+                res[level].append(node.val)
+                queue.append((node.left, level+1))
+                queue.append((node.right, level+1))
         return res
